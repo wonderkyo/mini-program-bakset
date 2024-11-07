@@ -1,0 +1,10 @@
+<!--pages/orderList/orderList.wxml-->
+<view>
+  <van-empty wx:if="{{orderList.length == 0}}" description="暂无订单可接单" />
+  <view wx:else>
+    <view wx:for="{{orderList}}" wx:for-item="item" wx:key="index">
+      <myCard address="{{ item.address }}" wareAddress="{{item.wareAddress}}" productName="{{item.productName}}" productQuant="{{item.productQuant}}" createTime="{{item.createTime}}" orderId="{{item.orderId}}"></myCard>
+    </view>
+    <view class="small-text padding-b100 text-center" wx:if="{{showBtnFlag}}">数据加载完毕</view>
+  </view>
+</view>

@@ -1,0 +1,29 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container-small lineh12">
+    <view class="strong margin-b10 flex-center">
+      <view>订单信息</view>
+    </view>
+    <view class="margin-b20">
+      <van-cell-group>
+        <van-cell title="订单编号" value="{{detailInfo.orderId}}" />
+        <van-cell title="取货地址" value="{{detailInfo.wareAddress}}" icon="location-o" />
+        <van-cell title="取货联系人" value="{{detailInfo.wareNickName}}" />
+        <van-cell title="取货人手机号" value="{{detailInfo.warePhone}}" />
+      
+        <van-cell title="目的地址" value="{{detailInfo.address}}" icon="aim"/>
+        <van-cell title="收货联系人" value="{{detailInfo.recName}}" />
+        <van-cell title="收货人手机号" value="{{detailInfo.recPhone}}" />
+
+        <van-cell title="货品名称" value="{{detailInfo.productName}}" icon="bag-o" />
+        <van-cell title="货品数量（箱）" value="{{detailInfo.productQuant}}" />
+
+        <van-cell title="订单创建时间" value="{{detailInfo.createTime}}" />
+        <van-cell title="仓库接单时间" value="{{detailInfo.wareAcpTime}}" />
+      </van-cell-group>
+    </view>
+    <view class="flex-center">
+      <van-button type="primary" bind:click="driverAccept">接单</van-button>
+    </view>
+  </view>
+</scroll-view>

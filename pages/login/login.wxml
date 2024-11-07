@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="title-text margin-t100">智能周转筐管理平台</view>
+    <view class="title-text margin-b180">司机端</view>
+    <view class="margin-b100 p-20">
+      <van-field model:value="{{ username }}" label="用户名" label-class="normal-text" input-class="normal-text" placeholder="请输入用户名" bind:click-icon="onClickIcon" />
+      <van-field model:value="{{ password }}" label-class="normal-text" input-class="normal-text" type="password" label="密码" placeholder="请输入密码" />
+    </view>
+    <view class="w-200">
+      <button size="large" type="primary" bind:tap="gotoLogin" custom-style="font-size: 36rpx;">登录</button>
+    </view>
+  </view>
+</scroll-view>

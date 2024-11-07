@@ -1,0 +1,135 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100rpx 0;
+  box-sizing: border-box;
+}
+.container-small{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10rpx;
+}
+.card-style{
+  margin: 10rpx;
+  padding: 10rpx;
+  width: 100%;
+  border-radius: 10px; /* 设置圆角的半径 */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* 设置阴影 */
+  background-color: #fff; /* 设置背景颜色 */
+}
+.word-wrap-style{
+  word-wrap: break-word;
+  text-align: left;
+}
+.strong{
+  font-weight: bold;
+}
+.flex{
+  display: flex;
+}
+.flex-alignitems-start{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.flex-direction-column{
+  display: flex;
+  flex-direction: column;
+}
+.flex-column{
+  display: flex;
+  align-items: center;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+}
+.margin-t100{
+  margin-top: 100rpx;
+}
+.margin-l10{
+  margin-left: 50rpx;
+}
+.margin-t10{
+  margin-top: 10rpx;
+}
+.margin-t200{
+  margin-top: 200rpx;
+}
+.margin-20{
+  margin: 20rpx;
+}
+.h-50{
+  height: 100rpx;
+}
+.margin-b200{
+  margin-bottom: 200rpx;
+}
+.margin-b180{
+  margin-bottom: 180rpx;
+}
+.margin-b100{
+  margin-bottom: 100rpx;
+}
+.margin-b20{
+  margin-bottom: 20rpx;
+}
+.w-full{
+  width: 100%;
+}
+.w-200{
+  width: 200rpx;
+}
+.w-80{
+  width: 120rpx;
+}
+.p-20 {
+  padding: 20rpx;
+}
+.ml-12{
+  margin-left: 12rpx;
+}
+.padding-b100{
+  padding-bottom: 20rpx;
+}
+
+/* 文字样式 */
+.text-center{
+  text-align: center;
+}
+.title-text {
+  font-size: 48rpx;
+  font-weight: bold;
+}
+.normal-text{
+  font-size: 36rpx;
+}
+.text16{
+  font-size: 16px;
+  line-height: 1.5em;
+}
+.text14{
+  font-size: 14px;
+  line-height: 1.5em;
+}
+.text12{
+  font-size: 12px;
+  line-height: 1.5em;
+}
+.small-text{
+  font-size: 12px;
+  line-height: 1.5em;
+  color:darkgrey;
+}
+.text-darkgrey{
+  color: darkgrey;
+}
+.lineh12 {
+  line-height: 2em;
+}
+

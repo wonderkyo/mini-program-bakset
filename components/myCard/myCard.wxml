@@ -1,0 +1,25 @@
+<!--components/myCard.wxml-->
+<view class="w-full">
+  <view class="card">
+    <view>
+      <view class="mycard-flex">
+        <view class="mycard-flex-center">
+          <van-icon name="location-o" />起：
+        </view>
+        <view class="word-wrap-style">{{ wareAddress }}</view>
+      </view>
+      <view class="mycard-flex">
+        <view class="mycard-flex-center">
+          <van-icon name="aim" />止：
+        </view>
+        <view class="word-wrap-style">{{ address }}</view>
+      </view>
+      <view>货名：{{productName}}</view>
+      <view>数量：{{productQuant}}箱</view>
+      <view>下单时间：{{createTimeHandled}}</view>
+    </view>
+    <view class="flex-column" bindtap="gotoDetail">
+      <van-icon name="arrow" />
+    </view>
+  </view>
+</view>

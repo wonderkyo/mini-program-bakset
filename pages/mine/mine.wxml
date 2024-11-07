@@ -1,0 +1,41 @@
+<!--pages/mine/mine.wxml-->
+<view>
+  <van-cell-group inset style="margin-top: 20px;">
+    <view style="margin: 10px 0; text-align: center;">我的信息</view>
+    <van-cell title="用户ID" value="{{profile.id}}" />
+    <van-cell title="用户名" value="{{profile.username}}" />
+    <van-cell title="角色" value="{{profile.roleCN}}" />
+    <van-cell title="昵称" value="{{profile.nickName}}" />
+    <van-cell title="性别" value="{{profile.genderCN}}" />
+    <van-cell title="手机号" value="{{profile.phone}}" />
+    <van-cell title="车牌号" value="{{profile.carNo}}" />
+  </van-cell-group>
+
+  <view class="flex-center">
+    <view class="flex-center mine-button-class" bindtap="modifyFunc">
+      修改
+    </view>
+  </view>
+
+  <van-dialog use-slot title="修改信息" show="{{ showFlag }}" show-cancel-button bind:cancel="onClose" before-close="{{beforeClose}}">
+    <van-cell-group inset style="margin-top: 20px;">
+      <van-field value="{{ profile.id }}" label="用户ID" disabled input-align="right" />
+      <van-field value="{{ profile.username }}" label="用户名" disabled input-align="right" />
+      <van-field value="{{ profile.roleCN }}" label="角色" disabled input-align="right" />
+
+      <van-field model:value="{{ nickName }}" label="昵称" bind:click-icon="onClickIcon" input-align="right" error-message="{{ errorNameMessage }}" error-message-align="right" />
+
+      <van-cell title="性别" clickable data-name="2" >
+        <van-radio-group value="{{ gender }}" bind:change="onChange"  class="flex-end">
+          <van-radio name="1" icon-size="15px" label-class="radioClass">男</van-radio>
+          <van-radio name="2" icon-size="15px" label-class="radioClass">女</van-radio>
+          <van-radio name="0" icon-size="15px" label-class="radioClass">保密</van-radio>
+        </van-radio-group>
+      </van-cell>
+
+      <van-field model:value="{{ phone }}" label="手机号" type="number" bind:click-icon="onClickIcon" input-align="right" maxlength="11" bind:blur="valiPhone" error-message="{{ errorPhoneMessage }}" error-message-align="right" />
+
+      <van-field model:value="{{ carNo }}" label="车牌号" bind:click-icon="onClickIcon" input-align="right" error-message="{{ errorCarMessage }}" bind:blur="valiCarNo" error-message-align="right" />
+    </van-cell-group>
+  </van-dialog>
+</view>

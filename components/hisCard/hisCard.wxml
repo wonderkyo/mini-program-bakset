@@ -1,0 +1,24 @@
+<!--components/hisCard.wxml-->
+<view class="w-full">
+  <view class="card">
+    <view class="text14">
+      <view class="orderid-style">订单编号：{{ orderId }}</view>
+      <view class="mycard-flex">
+        <view class="mycard-flex-center">
+          <van-icon name="location-o" />起：
+        </view>
+        <view class="word-wrap-style">{{ wareAddress }}</view>
+      </view>
+      <view class="mycard-flex" style="margin-top: 10px;">
+        <view class="mycard-flex-center">
+          <van-icon name="aim" />止：
+        </view>
+        <view class="word-wrap-style">{{ address }}</view>
+      </view>
+
+      <view>送达时间：{{ arriveTimeHandled }}</view>
+      <view wx:if="{{status == 'driveArrive'}}" style="color: lightcoral;">门店还未收货</view>
+      <view wx:if="{{status == 'storeAcp'}}" >门店已收货</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,99 @@
+/* pages/basket/basket.wxss */
+.basket-title-class {
+  background: linear-gradient(to right, rgb(50, 205, 50, 0.8), #fff);
+  border-radius: 15rpx;
+  line-height: 30px;
+  padding: 0 15px;
+  margin-bottom: 5px;
+  color: white;
+  font-weight: 700;
+}
+
+.card {
+  margin: 20rpx 0;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  /* 设置阴影 */
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.basket-button-class {
+  /* margin-top: 18rpx; */
+  background-color: rgb(50, 205, 50, 0.8);
+  border-radius: 15rpx;
+  width: 150rpx;
+  color: white;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.basketImg {
+  width: 50px;
+  height: 50px;
+}
+
+.end-direc {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.table {
+  /* border: 1px solid #dadada; */
+  border-right: 0;
+  border-bottom: 0;
+  width: 98%;
+  margin-top: 20px;
+}
+
+.tr {
+  width: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flex6 {
+  flex: 5;
+}
+
+.flex3 {
+  flex: 3;
+}
+
+.thcolor {
+  width: 100%;
+  border-radius: 10rpx;
+  background: linear-gradient(to right, rgb(50, 205, 50, 0.8), #fff);
+}
+
+.th,
+.td {
+  padding: 5px 10px;
+  /* border-bottom: 1px solid rgb(50, 205, 50, 0.5);
+  border-right: 1px solid rgb(50, 205, 50, 0.5); */
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.th {
+  font-weight: 400;
+}
+
+.guide-button-class {
+  /* margin: 18rpx 0; */
+  background-color: rgb(50, 205, 50, 0.8);
+  border-radius: 5rpx;
+  width: 100rpx;
+  color: white;
+  font-weight: 700;
+  line-height: 18px;
+}

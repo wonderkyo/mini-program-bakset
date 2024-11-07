@@ -1,0 +1,19 @@
+<!--pages/scan/scan.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="title-text margin-t100 margin-b100">周转筐录入</view>
+    <view class="margin-b100">     
+      <van-cell-group inset>
+        <van-field model:value="{{ doorCode }}" center clearable label="条码" placeholder="手动输入/扫一扫" border="{{ false }}" use-button-slot type="number" maxlength="30">
+          <van-button slot="button" size="small" type="primary" bindtap="scanCode">
+            扫一扫
+          </van-button>
+        </van-field>
+      </van-cell-group>
+    </view>
+    <view class="w-200">
+      <button size="large" type="primary" bind:tap="gotoLogin" custom-style="font-size: 36rpx;">录入</button>
+    </view>
+    <van-toast id="van-toast" />
+  </view>
+</scroll-view>

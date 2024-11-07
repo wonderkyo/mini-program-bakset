@@ -1,0 +1,7 @@
+var btnTextFunc = function (detailInfo) {
+  if(detailInfo){
+    return detailInfo.driverStartTime ? '去送货' : '去提货';
+  }
+  return ''
+}
+module.exports = { btnTextFunc: btnTextFunc };

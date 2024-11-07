@@ -1,0 +1,93 @@
+<!--pages/basket/basket.wxml-->
+<view class="container-small lineh12">
+  <van-toast id="van-toast" />
+  <van-tabs active="{{ active }}" bind:change="changeTab" color="rgb(50, 205, 50, 0.5)">
+    <van-tab title="门店归还申请">
+      <view style="margin-top: 20px; padding: 0 20px;">
+        <van-empty wx:if="{{!returnBaksetList || returnBaksetList.length == 0}}" description="暂无归还申请" />
+        <view wx:else>
+          <view class="card" wx:for="{{ returnBaksetList}}" wx:for-item="item" wx:key="index">
+            <view class="flex-direction-column text14" style="width: 100%;">
+              <view>归还编号：{{item.id}}</view>
+              <view>发起门店ID：{{item.storeId}}</view>
+              <view>发起时间：{{item.createTime}}</view>
+              <view>周转筐总数：<text style="font-weight: 700;">{{item.basketListLen}}</text>个</view>
+              <view>周转筐RFID码：</view>
+              <view wx:for="{{item.basketList}}" wx:for-item="item2" wx:key="index2" style="padding-left: 20px;">
+                <view>{{item2}}</view>
+              </view>
+              <view class="end-direc">
+                <view class="flex-center basket-button-class" bindtap="acceptReturnBasket" data-item="{{item}}">
+                  确认接收
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </van-tab>
+    <van-tab title="我名下的周转筐">
+      <view style="margin-top: 20px; padding: 0 20px;" class="text14">
+        <view class="basket-title-class text14">我名下的周转筐：共计{{totalAmount}}箱</view>
+        <view class="text14" style="display: flex; justify-content: space-around; margin-top: 20px; padding: 0 20px;">
+          <view style="display: flex; flex-direction: column; align-items: center;">
+            <image class="basketImg" src="../../images/return_basket.png"></image>
+            <view>归还在途{{ returnAmount }}个</view>
+          </view>
+          <view style="display: flex; flex-direction: column; margin-left: 20px;">
+            <image class="basketImg" src="../../images/occupied_basket.png"></image>
+            <view>运货中{{ occupiedAmount }}个</view>
+          </view>
+          <view style="display: flex; flex-direction: column; margin-left: 20px;">
+            <image class="basketImg" src="../../images/lost_basket.png"></image>
+            <view>丢失{{ lostAmount }}个</view>
+          </view>
+        </view>
+
+        <!-- <view class="table text12" wx:if="{{basketList.length!=0}}">
+          <view class="tr thcolor">
+            <view class="th flex1">序号</view>
+            <view class="th flex6">RFID码</view>
+            <view class="th flex6">取筐时间</view>
+            <view class="th flex3">状态</view>
+          </view>
+          <van-radio-group value="{{ radio }}" bind:change="onChange" direction="horizontal">
+            <view  wx:for="{{basketList}}" wx:for-item="item" wx:key="index">
+              <van-radio name="1" icon-size="15px">
+                <view class="tr">
+                  <view class="td flex1">{{item.id}}</view>
+                  <view class="td flex6">{{item.basketRfid}}</view>
+                  <view class="td flex6">{{item.updateTime}}</view>
+                  <view class="td flex3">{{item.status}}</view>
+                </view>
+              </van-radio>
+            </view>
+          </van-radio-group>
+        </view> -->
+
+        <view class="table text12" wx:if="{{basketList.length!=0}}">
+          <view class="tr thcolor">
+            <view class="th flex1">序号</view>
+            <view class="th flex6">RFID码</view>
+            <view class="th flex6">取筐时间</view>
+            <view class="th flex3">状态</view>
+            <!-- <view class="th flex3">修改</view> -->
+          </view>
+          <view class="tr" wx:for="{{basketList}}" wx:for-item="item" wx:key="index">
+            <view class="td flex1">{{item.id}}</view>
+            <view class="td flex6">{{item.basketRfid}}</view>
+            <view class="td flex6">{{item.updateTime}}</view>
+            <view class="td flex3">{{item.status}}</view>
+            <!-- <view class="td flex3">
+              <view class="flex-center guide-button-class" bindtap="updateBasketStatus" data-item="{{item}}">
+                {{item.status == '丢失'？'找回'}}
+              </view>
+            </view> -->
+          </view>
+        </view>
+
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>

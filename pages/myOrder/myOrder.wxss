@@ -1,0 +1,27 @@
+/* pages/myOrder/myOrder.wxss */
+.arrow-style {
+  width: 70rpx;
+  height: 100rpx;
+  margin: 10rpx 0;
+}
+
+.guide-button-class {
+  margin: 18rpx 0;
+  background-color: rgb(50, 205, 50, 0.8);
+  border-radius: 15rpx;
+  width: 200rpx;
+  color: white;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.orderid-style {
+  background: linear-gradient(to right, rgb(50, 205, 50, 0.8), #fff);
+  border-radius: 15rpx;
+  line-height: 30px;
+  padding: 0 15px;
+  width: 250rpx;
+  margin-bottom: 5px;
+  color: white;
+  font-weight: 700;
+}

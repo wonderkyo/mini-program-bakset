@@ -1,0 +1,97 @@
+<!--pages/myOrder/myOrder.wxml-->
+<view>
+  <view class="container-small lineh12">
+    <van-dialog id="van-dialog" />
+    <van-tabs active="{{ active }}" bind:change="changeTab" color="rgb(50, 205, 50, 0.5)">
+      <van-tab title="在途">
+        <!-- -------------------------tab1111111111111------------------------------ -->
+        <view style="margin-top: 20px; padding: 0 20px;">
+          <van-empty wx:if="{{showEmptyFlag}}" description="暂无在途订单" />
+          <view wx:else>
+            <view class="margin-t10 text14">
+              <view class="orderid-style">订单编号：{{detailInfo.orderId}}</view>
+              <view class="flex-alignitems-start">
+                <view class="flex-column">
+                  <van-icon name="location-o" />起：
+                </view>
+                <view class="word-wrap-style">
+                  <view>{{detailInfo.wareAddress}}</view>
+                  <view class="text12 text-darkgrey">取货联系人：{{detailInfo.wareNickName}}</view>
+                  <view class="text12 text-darkgrey">取货联系人手机号：{{detailInfo.warePhone}}</view>
+                </view>
+              </view>
+
+              <view class="flex-alignitems-start">
+                <view class="flex-column">
+                  <van-icon name="aim" />止：
+                </view>
+                <view>
+                  <view class="word-wrap-style">{{detailInfo.address}}</view>
+                  <view class="text12 text-darkgrey">收货联系人：{{detailInfo.recName}}</view>
+                  <view class="text12 text-darkgrey">取货联系人手机号：{{detailInfo.recPhone}}</view>
+                </view>
+              </view>
+            </view>
+
+            <view class="text14" style="margin-top: 20rpx;">订单创建时间：{{detailInfo.createTime}}</view>
+            <view class="text14">仓库接单时间：{{detailInfo.wareAcpTime}}</view>
+            <view class="text14">您的接单时间：{{detailInfo.driverAcpTime}}</view>
+            <view wx:if="{{detailInfo.driverStartTime}}" class="text14">取货时间：{{detailInfo.driverStartTime}}</view>
+
+            <view wx:if="{{detailInfo.basketList.length > 0}}" class="text14">
+                <view>货物信息：共计{{detailInfo.basketList.length}}箱</view>
+                <view></view>
+                <view>箱体标识号:</view>
+                <view wx:for="{{detailInfo.basketList}}" wx:for-item="item" wx:key="index" style="padding-left: 30px;">
+                  <view>{{item}}</view>
+                </view>
+              </view>
+
+            <view wx:if="{{detailInfo.driverStartTime}}">
+              <view class="text14">取货凭证：</view>
+              <view class="flex" style="margin-left: -10px;">
+                <view wx:for="{{ imgListHttp }}" wx:for-item="item" wx:key="index">
+                  <van-image style="margin-left: 10px;" width="80px" height="80px" mode="aspectFill" bind:click="onImageClick" src="{{item}}" data-src="{{item}}" />
+                </view>
+              </view>
+              
+              <view></view>
+              <view class="flex-center" style="margin-top: 20rpx;">
+                <view class="flex-center guide-button-class" style="margin-right: 20px;" bindtap="gotoGuide">
+                  导航送货
+                </view>
+                <view class="flex-center guide-button-class" bindtap="updateArriveTime">
+                  已送达
+                </view>
+              </view>
+            </view>
+            <view wx:else>
+              <view class="text14" style="margin-top: 10px;">上传取货图片</view>
+              <van-uploader file-list="{{ fileListDisplay }}" bind:after-read="afterRead" max-count="3" deletable="{{ true }}" bind:delete="afterDelete" />
+              <view class="flex-center" style="margin-top: 20rpx;">
+                <view class="flex-center guide-button-class" style="margin-right: 20px;" bindtap="gotoGuide">
+                  导航取货
+                </view>
+                <view class="flex-center guide-button-class" bindtap="updateStartTime">
+                  已取到货物
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- -------------------------tab1111111111111end------------------------------ -->
+      </van-tab>
+      <van-tab title="已送达">
+        <view>
+          <van-empty wx:if="{{orderHisList == []}}" description="您暂无未进行中的订单" />
+          <view wx:else>
+            <view wx:for="{{ orderHisList }}" wx:for-item="item" wx:key="index">
+              <hisCard address="{{ item.address }}" wareAddress="{{item.wareAddress}}" arriveTime="{{item.arriveTime}}" orderId="{{item.orderId}}" status="{{item.status}}"></hisCard>
+            </view>
+            <view class="small-text padding-b100 text-center" wx:if="{{showBtnFlag}}">数据加载完毕</view>
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>
